@@ -7,10 +7,10 @@ from dotenv import load_dotenv
 from datetime import date
 
 load_dotenv()
-year = input("What year?:    ")
+year = input("What year?:    ") #asks user input for year 
 api_key = os.getenv("RANSOMWARE_API_KEY")
 todays_year = int(date.today().strftime('%Y'))
-if int(year) >= 2022 and int(year) <= todays_year:
+if int(year) >= 2022 and int(year) <= todays_year: #if the year is not between 2022 and this year, returns error
     url = "https://api-pro.ransomware.live/victims/?year=" + str(year)
     headers = {
         "accept": "application/json",
