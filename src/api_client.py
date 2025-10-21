@@ -53,6 +53,6 @@ if int(year) >= 2022 and int(year) <= todays_year:
         upload.result()
         print(f"uploaded {len(df_with_filters)} rows to {table_id}")
     except Exception as e:
-        print("Error: could not upload table", e)
+        print("Error: ", e)
 else:
     print('Error: year out of bounds') 
