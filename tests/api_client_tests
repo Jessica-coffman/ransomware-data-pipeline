@@ -23,13 +23,13 @@ data = response.json() # extracting json content
 # print(type(data))
 # print(data.keys()) # prints headers
 # print(pd.json_normalize(data))
-records = data['victims'] # gets it to where we want
-df = pd.json_normalize(records) # takes the victim records, flattens them, puts them into Data Frame
-df_with_filters = df[['country', 'activity', 'attackdate', 'victim', 'group']]
+records = data # ['victims'] # gets it to where we want
+# df = pd.json_normalize(records) # takes the victim records, flattens them, puts them into Data Frame
+# df_with_filters = df[['country', 'activity', 'attackdate', 'victim', 'group']]
 
-df_with_filters.to_csv("ransowmare_victims-" + date.today().strftime("%Y-%m-%d") + '.csv', index=False)
+# df_with_filters.to_csv("ransowmare_victims-" + date.today().strftime("%Y-%m-%d") + '.csv', index=False)
 # print(type(records))
-# print(records[0].keys()) # prints each record headers
+print(records[0].keys()) # prints each record headers
 # print(df.columns)
 # print(df.head(10)[['country', 'activity', 'attackdate', 'victim', 'group']]) # checked first 10 rows to see if it was what I wanted
 # # print("First 10 Rows:")
