@@ -34,7 +34,19 @@ if int(year) >= 2022 and int(year) <= todays_year:
     df_with_filters.to_csv("ransomware_victims_" + year + '.csv', index=False) # saves CSV
 
     #import into GCP 
+    #if the table exists, delete it
+    client = bigquery.Client()
+    table_id = f"{project_id}.{table_name}.ransomware_victims_{year}"
+    
     try:
+        client.get_table(table_id)
+        client.delete_table(table_id, not_found_ok=True) # if the table already exists, delete it
+        print("Deleting old table...")
+    except Exception as e:
+        print("no table with that name found, creating table...")
+    # import csv into ransomware_year
+    try:
+        print("Creating new table...")
         table_id = project_id + '.' + table_name + '.ransomware_victims_' + year
         client = bigquery.Client()
         upload = client.load_table_from_dataframe(df_with_filters, table_id)
@@ -43,4 +55,4 @@ if int(year) >= 2022 and int(year) <= todays_year:
     except Exception as e:
         print("Error: ", e)
 else:
-    print('Error: year out of bounds')
+    print('Error: year out of bounds') #
