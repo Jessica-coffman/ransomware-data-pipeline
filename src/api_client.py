@@ -43,7 +43,7 @@ if int(year) >= 2022 and int(year) <= todays_year:
         client.delete_table(table_id, not_found_ok=True) # if the table already exists, delete it
         print("Deleting old table...")
     except Exception as e:
-        print("no table with that name found, creating table...")
+        print("no table with that name found")
     # import csv into ransomware_year
     try:
         print("Creating new table...")
@@ -55,4 +55,4 @@ if int(year) >= 2022 and int(year) <= todays_year:
     except Exception as e:
         print("Error: ", e)
 else:
-    print('Error: year out of bounds') #
+    print('Error: year out of bounds') 
