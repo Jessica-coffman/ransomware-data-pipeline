@@ -26,3 +26,4 @@ df = pd.json_normalize(records) # takes the victim records, flattens them, puts 
 df_with_filters = df[['country', 'activity', 'attackdate', 'victim', 'group']]
 
 df_with_filters.to_csv("ransowmare_victims-" + date.today().strftime("%Y-%m-%d") + '.csv', index=False)
+#test
