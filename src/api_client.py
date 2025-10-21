@@ -15,5 +15,4 @@ headers = {
 response = requests.get(url, headers=headers)
 
 print(response.status_code)
-print(response.json()[0])  # testing to see if it works. should pull first record
-#testing to see if it works now
+print(response.json()[0])
