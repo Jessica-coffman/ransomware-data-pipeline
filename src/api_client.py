@@ -5,12 +5,14 @@ import csv
 import pandas as pd
 from dotenv import load_dotenv
 from datetime import date
+from google.cloud import bigquery
 
 load_dotenv()
 year = input("What year?:    ")
 api_key = os.getenv("RANSOMWARE_API_KEY")
 project_id = os.getenv("PROJECT_ID")
 table_name = os.getenv("TABLE_NAME")
+gcp_key = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gcp_key
 todays_year = int(date.today().strftime('%Y'))
