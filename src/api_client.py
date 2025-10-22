@@ -27,7 +27,7 @@ if int(year) >= 2022 and int(year) <= todays_year:
 
     response = requests.get(url, headers=headers)
     data = response.json() # extracting json content
-    records = data['victims'] # gets it to where we want
+    records = data['victims'] # only extracts ransomware victim category
     df = pd.json_normalize(records) # takes the victim records, flattens them, puts them into Data Frame
     df_with_filters = df[['country', 'activity', 'attackdate', 'victim', 'group']]
 
