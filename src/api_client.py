@@ -34,7 +34,6 @@ if int(year) >= 2022 and int(year) <= todays_year:
     df_with_filters.to_csv("ransomware_victims_" + year + '.csv', index=False) # saves CSV
 
     #import into GCP 
-    #if the table exists, delete it
     client = bigquery.Client()
     table_id = f"{project_id}.{table_name}.ransomware_victims_{year}"
     
